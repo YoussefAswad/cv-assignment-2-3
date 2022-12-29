@@ -235,7 +235,7 @@ def color_position_features(img):
 
     # YOUR CODE HERE
     grid = (np.mgrid[0:H, 0:W])
-    coords = (np.dstack((grid[0], grid[1], color))).astype('float64')
+    coords = (np.dstack((color, grid[0], grid[1]))).astype('float64')
 
     features = coords.reshape([H * W, C + 2])
     features = features - np.mean(features, axis=0)
